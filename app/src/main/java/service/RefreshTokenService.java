@@ -20,6 +20,7 @@ public class RefreshTokenService {
     @Autowired
     UserRepository userRepository;
 
+    //create a fresh refresh token and store/replace in DB
     public RefreshToken createRefreshToken(String userName){
         // create a refreshToken and save it in the db using repository class, By the username,
         UserInfo userInfoExtracted = userRepository.findByUsername(userName);

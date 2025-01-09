@@ -1,7 +1,10 @@
 package entities;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +14,8 @@ import java.util.Set;
 @Entity
 @Data
 @AllArgsConstructor
+@Builder
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @NoArgsConstructor
 @Table(name="users")
 public class UserInfo {
@@ -19,6 +24,9 @@ public class UserInfo {
     @Column(name = "user_id")
     private String userId;
 
+    private String userName;
+
+    private String password;
     // will automaticallu create a table
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -27,10 +35,5 @@ public class UserInfo {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     Set<UserRole> roles= new HashSet<>();
-
-    @Column(name="user_name")
-    private String userName;
-
-    private String password;
 
 }
