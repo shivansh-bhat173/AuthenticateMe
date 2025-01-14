@@ -1,17 +1,17 @@
-package service;
+package myapp.service;
 
-import entities.UserInfo;
-import entities.UserRole;
+import myapp.entities.UserInfo;
+import myapp.entities.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import model.UserInfoDto;
+import myapp.model.UserInfoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import repository.UserRepository;
+import myapp.repository.UserRepository;
 
 import java.util.HashSet;
 import java.util.Objects;

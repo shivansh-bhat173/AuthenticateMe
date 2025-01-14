@@ -55,5 +55,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'AuthService.App'
+    mainClass = 'myapp.App'
 }

@@ -1,7 +1,7 @@
-package service;
+package myapp.service;
 
-import entities.UserInfo;
-import entities.UserRole;
+import myapp.entities.UserInfo;
+import myapp.entities.UserRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,14 +11,14 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomUserDetails extends UserInfo implements UserDetails
-{   // this service just fetches the userRole details from the Entity(DB) and saves its
+{   // this myapp.service just fetches the userRole details from the Entity(DB) and saves its
     // authorized roles information
     private String username;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
     public CustomUserDetails(UserInfo userInfo){
-        this.username = userInfo.getUserName();
+        this.username = userInfo.getUsername();
         this.password = userInfo.getPassword();
         List< GrantedAuthority> auths = new ArrayList<>();
 

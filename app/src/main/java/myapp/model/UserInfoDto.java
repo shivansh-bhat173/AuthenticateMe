@@ -1,11 +1,10 @@
-package model;
+package myapp.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import entities.UserInfo;
+import myapp.entities.UserInfo;
 import lombok.Builder;
 import lombok.Data;
-
 
 
 @Builder

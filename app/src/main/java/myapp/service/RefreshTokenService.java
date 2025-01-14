@@ -1,11 +1,11 @@
-package service;
+package myapp.service;
 
-import entities.RefreshToken;
-import entities.UserInfo;
+import myapp.entities.RefreshToken;
+import myapp.entities.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.RefreshTokenRepository;
-import repository.UserRepository;
+import myapp.repository.RefreshTokenRepository;
+import myapp.repository.UserRepository;
 
 import java.time.Instant;
 import java.util.Optional;
@@ -22,7 +22,7 @@ public class RefreshTokenService {
 
     //create a fresh refresh token and store/replace in DB
     public RefreshToken createRefreshToken(String userName){
-        // create a refreshToken and save it in the db using repository class, By the username,
+        // create a refreshToken and save it in the db using myapp.repository class, By the username,
         UserInfo userInfoExtracted = userRepository.findByUsername(userName);
         RefreshToken refreshToken = RefreshToken
                 .builder()
@@ -46,6 +46,6 @@ public class RefreshTokenService {
     }
 
     public Optional<RefreshToken> findByTokenId(String tokenId){
-        return refreshTokenRepository.findByToken(tokenId);
+        return refreshTokenRepository.findByTokenId(tokenId);
     }
 }

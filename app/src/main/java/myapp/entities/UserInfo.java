@@ -1,10 +1,9 @@
-package entities;
+package myapp.entities;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +13,6 @@ import java.util.Set;
 @Entity
 @Data
 @AllArgsConstructor
-@Builder
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @NoArgsConstructor
 @Table(name="users")
@@ -24,7 +22,7 @@ public class UserInfo {
     @Column(name = "user_id")
     private String userId;
 
-    private String userName;
+    private String username;
 
     private String password;
     // will automaticallu create a table

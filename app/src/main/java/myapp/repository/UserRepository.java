@@ -1,6 +1,6 @@
-package repository;
+package myapp.repository;
 
-import entities.UserInfo;
+import myapp.entities.UserInfo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,8 @@
-package service;
+package myapp.service;
 
 import lombok.Builder;
 import lombok.Data;
-import model.UserInfoDto;
+import myapp.model.UserInfoDto;
 import org.springframework.stereotype.Component;
 
 import java.util.regex.Matcher;

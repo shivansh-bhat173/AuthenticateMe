@@ -1,4 +1,4 @@
-package service;
+package myapp.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

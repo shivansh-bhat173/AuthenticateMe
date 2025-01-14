@@ -1,4 +1,4 @@
-package auth;
+package myapp.auth;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import repository.UserRepository;
-import service.UserDetailsServiceImpl;
+import myapp.repository.UserRepository;
+import myapp.service.UserDetailsServiceImpl;
 
 @Configuration
 @EnableMethodSecurity
@@ -37,13 +37,16 @@ public class SecurityConfig {
     public UserDetailsService UserDetailsService(UserRepository userRepo,PasswordEncoder passwordEncoder){
         return new UserDetailsServiceImpl(userRepo,passwordEncoder);
     }
+    // This will be configure before Jwt Service
+    // and only permitAll except signup , login And refreshtoken
+    // for specified requests
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthFilter jwtAuthFilter) throws Exception {
 
         return http
                 .csrf(AbstractHttpConfigurer::disable).cors(CorsConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/v1/login", "/auth/v1/refreshToken", "/auth/v1/signup").permitAll()
+                        .requestMatchers("/myapp/auth/v1/login", "/myapp/auth/v1/refreshToken", "/myapp/auth/v1/signup").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

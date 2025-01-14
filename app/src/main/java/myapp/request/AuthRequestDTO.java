@@ -1,4 +1,4 @@
-package request;
+package myapp.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class RefreshTokenDTO {
+@NoArgsConstructor
+public class AuthRequestDTO {
 
-    private String refreshToken;
+    private String username;
+    private String password;
 }
